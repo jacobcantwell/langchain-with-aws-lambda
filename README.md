@@ -10,6 +10,12 @@ Add [LangChain](https://www.langchain.com/) LLM orchestration to AWS Lambda
 * Pip3
 * AWS CLI installed and configured
 
+The examples below assume an AWS profile being used for the AWS CLI commands.
+
+```
+aws configure --profile computer-vision
+```
+
 ### Create a local zip file with the LangChain libraries
 
 ```
@@ -30,9 +36,9 @@ aws lambda publish-layer-version \
   --description "LangChain LLM orchestration library" \
   --license-info "MIT" \
   --compatible-architectures x86_64 \
-  --zip-file langchain-layer.zip \
+  --zip-file fileb://langchain-layer.zip \
   --compatible-runtimes python3.11 python3.12 \
-  --profile default
+  --profile computer-vision
 ```
 
 
