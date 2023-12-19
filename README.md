@@ -119,7 +119,7 @@ EOF
 Create a deployment package.
 
 ```bash
-zip function.zip index.js
+zip function.zip index.py
 ```
 
 ### Create AWS Lambda function
