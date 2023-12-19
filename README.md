@@ -126,18 +126,19 @@ zip function.zip index.py
 
 ```bash
 aws lambda create-function \
+--profile computer-vision \
 --function-name langchain-bedrock-orchestration-v1 \
---runtime python3.12 \
+--zip-file fileb://function.zip \
 --handler index.handler \
---role $(jq --raw-output '.Role.Arn' iam-create-role.json)\
+--runtime python3.12 \
+--role $(jq --raw-output '.Role.Arn' iam-create-role.json) \
 --description "LangChain Bedrock orchestration function" \
 --timeout 60 \
---publish true \
---package-type Zip \
 --tags Project=langchain-bedrock \
---layers $(jq --raw-output '.LayerArn' lambda-publish-layer-version.json)\
---zip-file fileb://function.zip
+--layers $(jq --raw-output '.LayerArn' lambda-publish-layer-version.json)
 ```
+
+
 
 
 
